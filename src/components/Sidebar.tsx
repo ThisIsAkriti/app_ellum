@@ -1,32 +1,34 @@
 import { useSelector } from "react-redux"
 import { RootState } from "../utils/store"
-import { Link} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 const Sidebar: React.FC = () => {
   const isMenuOpen = useSelector((state : RootState) => state.sidebarToggle.isMenuOpen);
+  const navigate = useNavigate();
+
   if(isMenuOpen){
     return(
       <div className="sidebar_wrapper01">
         <ul>
           <li>
-            <Link to= {"/admin/profile"}>
+            <div onClick={() => navigate('/admin/profile')}>
               <img src="../admin.png" alt="admin" />
-            </Link>
+            </div>
           </li>
           <li>
-            <Link to= {"/admin/profile"}>
+            <div onClick={() => navigate('/admin/profile')}>
               <img src="../admin.png" alt="admin" />
-            </Link>
+            </div>
           </li>
           <li>
-            <Link to= {"/admin/profile"}>
+            <div onClick={() => navigate('/admin/profile')}>
               <img src="../admin.png" alt="admin" />
-            </Link>
+            </div>
           </li>
           <li>
-            <Link to= {"/admin/profile"}>
+            <div onClick={() => navigate('/admin/profile')}>
               <img src="../admin.png" alt="admin" />
-            </Link>
+            </div>
           </li>
           </ul>
       </div>
@@ -39,53 +41,45 @@ const Sidebar: React.FC = () => {
         </h2>
         <ul>
           <li>
-            <Link to= {"/admin/profile"}>
-            <div>
+            <div onClick={() => navigate('/admin/profile')}>
               <div>
                 <img src="../admin.png" alt="admin" />
                 <span>Profile</span>
               </div>
               <img src="../rightArrow.png" alt="arrow" />
             </div>
-            </Link>
           </li>
 
           <li>
-            <Link to= {"/admin/authentication"}>
-            <div>
+            <div onClick={() => navigate('/admin/authentication')}>
               <div>
                 <img src="../admin.png" alt="admin" />
                 <span>Authentication</span>
               </div>
               <img src="../rightArrow.png" alt="arrow" />
             </div>
-            </Link>
           </li>
 
 
           <li>
-            <Link to= {"/admin/error"}>
-            <div>
+            <div onClick={() => navigate('/admin/error')}>
               <div>
                 <img src="../admin.png" alt="admin" />
                 <span>Error Pages</span>
               </div>
               <img src="../rightArrow.png" alt="arrow" />
             </div>
-            </Link>
           </li>
 
 
           <li>
-            <Link to= {"/admin/subscription"}>
-            <div>
+            <div onClick={() => navigate('/admin/subscription')}>
               <div>
                 <img src="../admin.png" alt="admin" />
                 <span>Susbcription</span>
               </div>
               <img src="../rightArrow.png" alt="arrow" />
             </div>
-            </Link>
           </li>
         </ul>
       </div>

@@ -45,6 +45,7 @@ const Login = () => {
                     <div className="login_button" onClick={handleClicklogin}>Login</div>
                 </form>
                 <p className="last-pTag">Don't have an account yet? <span className="register">Register</span></p>
+                {login && <p className="Loggedin">Login successfull!</p>}
                 {error && <p className="error">Invalid credentials.Try again!</p>}
             </div>
         </div>

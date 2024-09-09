@@ -98,7 +98,8 @@ a{
         text-align: center;
         
     }
-    .error{
+    .error,
+    .Loggedin{
         color:rgb(243, 4, 4);
         font-size: 0.8rem;
         font-weight: bold;
@@ -106,6 +107,9 @@ a{
         position: absolute;
         text-align: center;
         width: 100%;
+    }
+    .Loggedin{
+        color:rgba(11, 145, 11, 0.596);
     }
 }
 .dashboard_pTag{
@@ -240,6 +244,7 @@ a{
            div{
                 @include mixin.flex(row , space-between, center , 1rem);
                 margin: 0.2rem 0.8rem;
+                cursor: pointer;
            }
             span{
                 color: color.$colortextGray;
