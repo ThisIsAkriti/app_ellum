@@ -6,17 +6,17 @@ const Login = () => {
     const [email , setEmail] = useState(employees[1].email);
     const [password , setPassword] = useState(employees[1].password);
     const [login , setLogin] = useState(false);
+    const [error , setError] = useState(false);
     const navigate = useNavigate();
     const handleClicklogin = (e:React.MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
         const employee = employees.find((emp) => emp.email === email && emp.password === password);
-        console.log(employees)
-        console.log(employee);
+
         if(employee) {
             setLogin(true);
-            navigate('/dashboard');
+            navigate('/admin/dashboard');
         }else{
-            alert('Invalid Credentials!')
+            setError(true);
         }
        
     }
@@ -45,7 +45,7 @@ const Login = () => {
                     <div className="login_button" onClick={handleClicklogin}>Login</div>
                 </form>
                 <p className="last-pTag">Don't have an account yet? <span className="register">Register</span></p>
-                {login && <p>Logged in successfully!</p>}
+                {error && <p className="error">Invalid credentials.Try again!</p>}
             </div>
         </div>
         
