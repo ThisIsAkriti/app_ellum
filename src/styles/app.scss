@@ -1,11 +1,35 @@
 @use "_colors" as color;
+@use "_mixin" as mixin;
+:root {
+    font-family: Inter, system-ui , Avenir , Arial, Helvetica, sans-serif;
+    --header-height: 60px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
 .custom_Button{
-    background:linear-gradient(to right , rgb(250, 64, 39) , rgb(252, 105, 0));
+    background: color.$bgGradient;
     font-weight: bold;
     font-size: large;
     color:white;
 }
-
 
 .custom_form_content{
     display: flex;
@@ -24,19 +48,12 @@
     font-weight: bold;
     margin-bottom: 8px;
 }
-body{
- height: 100vh;
- width: 100%;
- padding: 0;
- margin: 0;
-}
 
 .main_container{
     display: flex;
     flex-direction: column;
     width: 100%;
     height:100vh;
-    font-family: sans-serif;
     background-color: whitesmoke;
     
 }
@@ -61,19 +78,18 @@ body{
     @extend .custom_Button;
 }
 .form_container{
-    display: flex;
     width: 100%;
     height: 100%;
-    justify-content: center;
-    align-items: center;
+    @include mixin.flex();
 }
 
 .form_content{
+    position: relative;
     width: 460px;
-    height: 400px;
+    height:auto;
     background-color: white;
-    padding: 10px 10px 40px 10px;
-    border: solid rgb(221, 219, 219) 1px;
+    padding: 20px 10px 40px 10px;
+    border: color.$inputBorder;
     border-radius: 4px;
     @media screen and (max-width: 768px) {
         width: 320px;
@@ -81,6 +97,15 @@ body{
     >h1 , p{
         text-align: center;
         
+    }
+    .error{
+        color:rgb(243, 4, 4);
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin-top: 0.2rem;
+        position: absolute;
+        text-align: center;
+        width: 100%;
     }
 }
 .dashboard_pTag{
@@ -102,7 +127,6 @@ body{
         @extend .custom_text;
     }
     @extend .custom_form_content;
-    
 }
 .input_Fields2{
    >div{
@@ -115,19 +139,152 @@ body{
 .password{
     @extend .custom_text;
 }
+.dashboard_wrapper{
+    width: 100%;
+    height: 100vh;
+}
+.header_container{
+    background: color.$bgGradient;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:white;
+    font-weight: bolder;
+    position: sticky;
+    top: 0;
+    img{
+        height: 24px;
+    }
+    > div * {
+        margin: 0 10px;
+    }
+    .leftSide_header{
+        @include mixin.flex(row , unset , center ,0);
+    }
+    @media screen and (min-width: 992px) {
+        .screenMenu {
+          display: none;
+        }
+    }
+    @media screen and (max-width: 992px) {
+    .pcMenu,
+    p{
+        display: none;
+    }
+    }
+    .rightSide_header{
+       @include mixin.flex(row , unset , center ,0);
+        margin-right: 10px;
+        .search-bar{
+            @include mixin.flex(row , unset , center ,0);
+            background-color: color.$background_transparent;
+            padding:8px 10px;
+            border-radius: 4px;
+            >input{
+                background-color: transparent;
+                border:none;
+                outline:none;
+                padding:5px;
+                width: 100px;
+                color:white;
+            }
+        }
+        .search-bar input::placeholder{
+            font-weight: bold;
+            color:white;
+        }
+        @media screen and (max-width: 992px) {
+            .search-bar 
+            input {
+              display: none;
+            }
+        }
+        .notification,
+        .message{
+            background-color: color.$background_transparent;
+            border-radius: 4px;
+            padding: 6px;
+        }
+        
+    }
+    @media screen and (max-width: 550px) {
+        .rightSide_header{
+            display: none;
+        }
+    }
+}
 
+.dashbord_body{
+    @include mixin.grid(auto 1fr);
+    display: grid;
+    grid-template-columns:auto 1fr ;
+    color: white;
+}
+.sidebar_wrapper{
+    height: calc(100vh - var(--header-height));
+    width: 250px;
+    background-color: color.$bg-sidebar;
+    overflow-y: auto;
+    h2{
+       @include mixin.flex(row , unset , center ,0);
+        margin: 2rem 1rem 0.5rem 1rem ;
+        font-size: smaller;
+        > span{
+            color:color.$dot_color;
+            margin-right: 8px;
+        }
+    }
+    ul{
+        >li{ 
+           div{
+                @include mixin.flex(row , space-between, center , 1rem);
+                margin: 0.2rem 0.8rem;
+           }
+            span{
+                color: color.$colortextGray;
+                font-weight: bold;
+            }
+            img{
+                width: 1rem;
+            }
+        }
+    }
+}
+.body-wrapper{
+    overflow-y: auto;
+    height: calc(100vh - var(--header-height));
+}
 
+.profile_tag{
+    @include mixin.flex(row , unset , center ,0);
+    justify-content: space-between;
+    font-size: small;
+    font-weight: bolder;
+    color:color.$color_gray;
+    padding: 4px 8px;
+    cursor: pointer;
+    >div{
+        @include mixin.flex(row , unset , center ,0);;
+        >span{
+            margin-left: 8px;
+        }
+    }
+}
+.arrow{
+    height: 14px;
+    
+}
 
-
-
-/*
-$breakpoints: (
-  xxs: 480px,
-  xs: 768px,
-  sm: 991px,
-  md: 1280px,
-  lg: 1920px,
-  xl: 5000px
-);
-
-*/
+.sidebar_wrapper01{
+    background-color: color.$bg-sidebar;
+    width:60px;
+    > ul{
+        margin-top: 1rem;
+        li{
+            @include mixin.flex();
+            margin: 0.5rem;
+            cursor: pointer;
+        }
+    }
+}

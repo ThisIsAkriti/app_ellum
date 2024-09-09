@@ -1,3 +1,18 @@
+/*
+$breakpoints: (
+  xxs: 480px,
+  xs: 768px,
+  sm: 991px,
+  md: 1280px,
+  lg: 1920px,
+  xl: 5000px
+);
+
+*/
+:root {
+  --header-height: 60px;
+}
+
 .custom_Button, .login_button, .apply_button {
   background: linear-gradient(to right, rgb(250, 64, 39), rgb(252, 105, 0));
   font-weight: bold;
@@ -29,6 +44,7 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
+  font-family: sans-serif;
 }
 
 .main_container {
@@ -36,7 +52,6 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  font-family: sans-serif;
   background-color: whitesmoke;
 }
 
@@ -108,14 +123,140 @@ body {
   justify-content: space-between;
 }
 
-/*
-$breakpoints: (
-  xxs: 480px,
-  xs: 768px,
-  sm: 991px,
-  md: 1280px,
-  lg: 1920px,
-  xl: 5000px
-);
+.dashboard_wrapper {
+  width: 100%;
+  height: 100vh;
+}
 
-*//*# sourceMappingURL=app.css.map */
+.custom_display, .sidebar_wrapper01 > .sidebar01, .profile_tag > div, .profile_tag, .page-heading, .header_container .rightSide_header .search-bar, .header_container .rightSide_header, .header_container .leftSide_header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.header_container {
+  background: linear-gradient(to right, rgb(250, 64, 39), rgb(252, 105, 0));
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-weight: bolder;
+  position: sticky;
+  top: 0;
+}
+.header_container img {
+  height: 24px;
+}
+.header_container > div * {
+  margin: 0 10px;
+}
+@media screen and (min-width: 992px) {
+  .header_container .screenMenu {
+    display: none;
+  }
+}
+@media screen and (max-width: 992px) {
+  .header_container .pcMenu,
+  .header_container p {
+    display: none;
+  }
+}
+.header_container .rightSide_header {
+  margin-right: 10px;
+}
+.header_container .rightSide_header .search-bar {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 10px;
+  border-radius: 4px;
+}
+.header_container .rightSide_header .search-bar > input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 5px;
+  width: 100px;
+  color: white;
+}
+.header_container .rightSide_header .search-bar input::-moz-placeholder {
+  font-weight: bold;
+  color: white;
+}
+.header_container .rightSide_header .search-bar input::placeholder {
+  font-weight: bold;
+  color: white;
+}
+@media screen and (max-width: 992px) {
+  .header_container .rightSide_header .search-bar input {
+    display: none;
+  }
+}
+.header_container .rightSide_header .notification,
+.header_container .rightSide_header .message {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 6px;
+}
+@media screen and (max-width: 550px) {
+  .header_container .rightSide_header {
+    display: none;
+  }
+}
+
+.dashbord_body {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  color: white;
+}
+
+.sidebar_wrapper {
+  height: calc(100vh - var(--header-height));
+  width: 250px;
+  background-color: rgb(54, 54, 54);
+  overflow-y: auto;
+}
+
+.body-wrapper {
+  overflow-y: auto;
+  height: calc(100vh - var(--header-height));
+}
+
+.page-heading {
+  padding: 4px 8px;
+}
+.page-heading > span {
+  color: rgb(252, 105, 0);
+}
+.page-heading > p {
+  font-size: smaller;
+  font-weight: bolder;
+  margin-left: 6px;
+}
+
+.profile_tag {
+  justify-content: space-between;
+  font-size: small;
+  font-weight: bolder;
+  color: rgb(117, 115, 115);
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.profile_tag > div > span {
+  margin-left: 8px;
+}
+
+.arrow {
+  height: 14px;
+}
+
+.sidebar_wrapper01 {
+  background-color: rgb(54, 54, 54);
+  width: 60px;
+}
+.sidebar_wrapper01 > .sidebar01 {
+  justify-content: center;
+  margin-top: 20px;
+}
+.sidebar_wrapper01 > .sidebar01 > img {
+  cursor: pointer;
+}/*# sourceMappingURL=app.css.map */
