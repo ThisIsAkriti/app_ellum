@@ -1,5 +1,6 @@
-import Body from "../components/Body";
+
 import Header from "../components/Header";
+import ProfileBody from "../components/ProfileBody";
 import Sidebar from "../components/Sidebar"
 
 const profile = () => {
@@ -8,7 +9,7 @@ const profile = () => {
         <Header/>
         <div className="dashbord_body">
           <Sidebar/>
-          <Body/>
+          <ProfileBody/>
         </div>
       </div>
     )

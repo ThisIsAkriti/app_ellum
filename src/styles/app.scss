@@ -1,7 +1,7 @@
 @use "_colors" as color;
 @use "_mixin" as mixin;
 :root {
-    font-family: Inter, system-ui , Avenir , Arial, Helvetica, sans-serif;
+    font-family:Arial , 'Verdana' , 'Times New Roman';
     --header-height: 60px;
     line-height: 1.5;
     font-weight: 400;
@@ -16,7 +16,6 @@ body{
     width: 100%;
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
 }
 
 a{
@@ -162,6 +161,7 @@ a{
     }
     > div * {
         margin: 0 10px;
+        cursor: pointer;
     }
     .leftSide_header{
         @include mixin.flex(row , unset , center ,0);
@@ -220,9 +220,7 @@ a{
 }
 
 .dashbord_body{
-    @include mixin.grid(auto 1fr);
-    display: grid;
-    grid-template-columns:auto 1fr ;
+    @include mixin.grid(auto 1fr ,row, 0rem);
     color: white;
 }
 .sidebar_wrapper{
@@ -234,6 +232,7 @@ a{
        @include mixin.flex(row , unset , center ,0);
         margin: 2rem 1rem 0.5rem 1rem ;
         font-size: smaller;
+        color:white;
         > span{
             color:color.$dot_color;
             margin-right: 8px;
@@ -284,6 +283,7 @@ a{
 .sidebar_wrapper01{
     background-color: color.$bg-sidebar;
     width:60px;
+    height:calc(100vh - var(--header-height));
     > ul{
         margin-top: 1rem;
         li{
@@ -292,4 +292,101 @@ a{
             cursor: pointer;
         }
     }
+}
+.custom_profile_div{
+    margin:1rem 0;
+}
+.profileBody{
+    background-color: rgb(245, 245, 245);
+    color: rgba(0, 0, 0, 0.753);
+    padding: 2rem;
+    .profile_card{
+        @include mixin.grid(1fr 1fr ,1fr , 0);
+        height: min-content;
+        background-color: white;
+        margin-top: 2rem;
+
+        .profile_Left{
+            @include mixin.flex( row , unset , unset , 0);
+            @extend .custom_profile_div;
+            border-right: dashed 1px color.$colortextGray02 ;
+            .img{
+                height: 8rem;
+                width: 8rem;
+                background-color: rgb(209, 208, 208);
+                border-radius: 100%;
+                margin:0 1rem;
+            }
+            .person_details{
+                .lines{
+                    margin: 0.5rem 0;
+                    .id,
+                    .date{
+                        font-weight: bolder;
+                        font-size: 0.8rem;
+                    }
+                }
+                h5,
+                small,
+                .date{
+                    color:color.$colortextGray02;
+                }
+                small ,
+                h5{
+                    font-weight:bold;
+                }
+            }
+            button{
+                background:color.$bgGradient;
+                @include mixin.btn();
+                margin-top: 1rem;
+            }
+
+        }
+        .profile_right{
+            @extend .custom_profile_div;
+            margin-left: 2rem;
+            font-weight:600;
+            
+            ul li{
+                @include mixin.grid(1fr 1fr , 1f , 0);
+                margin:0.5rem 0;
+                .num ,
+                .email,
+                .name{
+                    color:color.$dot_color;
+                }
+                div{
+                    color:color.$colortextGray02;
+                }  
+            }
+        }
+    }
+
+    .profile_card02{
+        nav{
+            @include mixin.flex(row , unset, unset , 1rem);
+            font-weight:bold;
+            color:color.$colortextGray02;
+            background-color: white;
+            margin-top: 1rem;
+            padding: 0.6rem 0.6rem;
+            box-shadow:0 2px 4px -1px rgba(0, 0, 0, 0.2); 
+            border-radius: 0.2rem;
+            span{
+                color:red;
+                font-weight: normal;
+                font-size: 0.8rem;
+            }
+            div{
+                cursor: pointer;
+                margin: 0 0.6rem;
+            }
+        }
+        
+    }
+}
+
+.dashbord_body{
+    color:black;
 }

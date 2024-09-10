@@ -1,4 +1,4 @@
-import Body from "../components/Body";
+import AuthBody from "../components/AuthBody";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar"
 
@@ -8,7 +8,7 @@ const authentication = () => {
         <Header/>
         <div className="dashbord_body">
           <Sidebar/>
-          <Body/>
+          <AuthBody/>
         </div>
       </div>
     )

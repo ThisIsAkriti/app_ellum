@@ -25,4 +25,13 @@
     left:50%;
     transform: translate(-50% , -50%);
 }
+@mixin btn($border:none , $p:0.6rem 1rem){
+    outline:none;
+    border: $border;
+    padding: $p;
+    color:white;
+    font-weight: bold;
+    border-radius: 0.4rem;
+    
+}
 

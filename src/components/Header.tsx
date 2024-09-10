@@ -1,8 +1,10 @@
 import { useDispatch } from "react-redux"
 import { toggleMenu } from "../utils/sidebarToggleSlice";
+import { useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleMenuClick = () => {
         dispatch(toggleMenu());
     }
@@ -12,7 +14,7 @@ const Header: React.FC = () => {
                 <img onClick={handleMenuClick} className="screenMenu" src="../hamburgerBold.png" alt="menu" />
                 <p>logo</p>
                 <img onClick={handleMenuClick}  className="pcMenu" src="../hamburgerBold.png" alt="menu" />
-                <p>Dreams Technologies</p>
+                <p onClick={() => navigate('/admin/Dashboard')}>Dreams Technologies</p>
             </div>
             <div className="rightSide_header">
                 <div className="search-bar">

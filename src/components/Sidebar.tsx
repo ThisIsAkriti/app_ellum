@@ -8,7 +8,7 @@ const Sidebar: React.FC = () => {
 
   if(isMenuOpen){
     return(
-      <div className="sidebar_wrapper01">
+      <nav className="sidebar_wrapper01">
         <ul>
           <li>
             <div onClick={() => navigate('/admin/profile')}>
@@ -31,11 +31,11 @@ const Sidebar: React.FC = () => {
             </div>
           </li>
           </ul>
-      </div>
+      </nav>
     )
   }else{
     return(
-      <div className="sidebar_wrapper">
+      <nav className="sidebar_wrapper">
         <h2>
           <span>•</span>PAGES
         </h2>
@@ -82,7 +82,7 @@ const Sidebar: React.FC = () => {
             </div>
           </li>
         </ul>
-      </div>
+      </nav>
     )
   }
 }

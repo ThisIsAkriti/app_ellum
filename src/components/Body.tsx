@@ -2,8 +2,8 @@
 
 const Body = () => {
   return (
-    <div className="body-wrapper">
-      body
+    <div className="dashboard_card">
+      dashboard
     </div>
   )
 }
