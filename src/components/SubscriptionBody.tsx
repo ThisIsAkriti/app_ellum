@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../utils/store";
 
-const AuthBody = () => {
+const SubscriptionBody = () => {
   const isMenuOpen = useSelector((state : RootState) => state.sidebarToggle.isMenuOpen);
   return (
     <div className={`${isMenuOpen? "Contract" : "Expand"}`}>
-      authentication
+      subscription
     </div>
   )
 }
-export default AuthBody;
+export default SubscriptionBody;

@@ -1,9 +1,21 @@
+import { useState } from "react";
+import DProfile from "./DProfile";
 import info from "../utils/data/info_profile.json";
+import DProjects from "./DProjects";
+import DStatutory from "./DStatutory";
+import DAssets from "./DAssets";
+import { useSelector } from "react-redux";
+import { RootState } from "../utils/store";
 
-const ProfileBody = () => {
+const ProfileBody:React.FC = () => {
     const profileData = info.data;
+    const [activateCard , setActivate] = useState("profile");
+    const isMenuOpen = useSelector((state : RootState) => state.sidebarToggle.isMenuOpen);
+    const handleButtonClicked = (card : string) => {
+        setActivate(card);
+    }
     return(
-        <div className="profileBody">
+        <div className={` profile-body ${isMenuOpen? " Contract" : "Expand"}`}>
             <h2>Profile</h2>
             <h4>Dashboard / Profile</h4>
             {profileData.map((data) => (
@@ -57,13 +69,17 @@ const ProfileBody = () => {
                 </div>
             ))}
 
-            <div className="profile_card02">
+            <div className="profile_card02_nav">
                 <nav>
-                    <div>Profile</div>
-                    <div>Projects</div>
-                    <div>Bank and Statutory <span>(Admin Only)</span></div>
-                    <div>Assets</div>
+                    <div onClick={() => handleButtonClicked('profile')}>Profile</div>
+                    <div onClick={() => handleButtonClicked('projects')}>Projects</div>
+                    <div onClick={() => handleButtonClicked('bank')}>Bank and Statutory <span>(Admin Only)</span></div>
+                    <div onClick={() => handleButtonClicked('assets')}>Assets</div>
                 </nav>
+                {activateCard === 'profile' && <DProfile/>}
+                {activateCard === 'projects' && <DProjects/>}
+                {activateCard === 'bank' && <DStatutory/>}
+                {activateCard === 'assets' && <DAssets/>}
             </div>
         </div>
     )

@@ -114,10 +114,10 @@ a{
 .dashboard_pTag{
     font-weight: bold;
     margin-bottom: 24px;
-    color:color.$colortextGray;
+    color:color.$colortextGray02;
 }
 .forgot-password{
-    color:color.$colortextGray;
+    color:color.$colortextGray02;
     font-size:medium;
 }
 .register{
@@ -143,10 +143,17 @@ a{
     @extend .custom_text;
 }
 .dashboard_wrapper{
-    width: 100%;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashbord_body{
+    color:black;
+    display: flex;
+    flex-grow: 1;
 }
 .header_container{
+    width: 100%;
     background: color.$bgGradient;
     height: 60px;
     display: flex;
@@ -154,7 +161,7 @@ a{
     align-items: center;
     color:white;
     font-weight: bolder;
-    position: sticky;
+    position: fixed;
     top: 0;
     img{
         height: 24px;
@@ -218,16 +225,18 @@ a{
         }
     }
 }
-
-.dashbord_body{
-    @include mixin.grid(auto 1fr ,row, 0rem);
-    color: white;
-}
-.sidebar_wrapper{
-    height: calc(100vh - var(--header-height));
-    width: 250px;
+.custom-sidebar{
+    margin-top: 60px;
     background-color: color.$bg-sidebar;
     overflow-y: auto;
+    position: fixed;
+    top:0;
+    left:0;
+    bottom: 0;
+}
+.sidebar_wrapper{
+    width: 250px;
+    @extend .custom-sidebar;
     h2{
        @include mixin.flex(row , unset , center ,0);
         margin: 2rem 1rem 0.5rem 1rem ;
@@ -246,7 +255,7 @@ a{
                 cursor: pointer;
            }
             span{
-                color: color.$colortextGray;
+                color: color.$colortextGray02;
                 font-weight: bold;
             }
             img{
@@ -255,35 +264,10 @@ a{
         }
     }
 }
-.body-wrapper{
-    overflow-y: auto;
-    height: calc(100vh - var(--header-height));
-}
-
-.profile_tag{
-    @include mixin.flex(row , unset , center ,0);
-    justify-content: space-between;
-    font-size: small;
-    font-weight: bolder;
-    color:color.$color_gray;
-    padding: 4px 8px;
-    cursor: pointer;
-    >div{
-        @include mixin.flex(row , unset , center ,0);;
-        >span{
-            margin-left: 8px;
-        }
-    }
-}
-.arrow{
-    height: 14px;
-    
-}
 
 .sidebar_wrapper01{
-    background-color: color.$bg-sidebar;
     width:60px;
-    height:calc(100vh - var(--header-height));
+    @extend .custom-sidebar;
     > ul{
         margin-top: 1rem;
         li{
@@ -293,10 +277,22 @@ a{
         }
     }
 }
+
+
+.body-wrapper{
+    overflow-y: auto;
+    height: calc(100vh - var(--header-height));
+}
+.arrow{
+    height: 14px;
+    
+}
 .custom_profile_div{
     margin:1rem 0;
 }
-.profileBody{
+
+.profile-body {
+    flex-grow:1;
     background-color: rgb(245, 245, 245);
     color: rgba(0, 0, 0, 0.753);
     padding: 2rem;
@@ -363,7 +359,7 @@ a{
         }
     }
 
-    .profile_card02{
+    .profile_card02_nav{
         nav{
             @include mixin.flex(row , unset, unset , 1rem);
             font-weight:bold;
@@ -386,7 +382,120 @@ a{
         
     }
 }
+.Contract{
+    margin-left:3rem;
+}
+.Expand{
+    margin-left: 15rem;
+}
 
-.dashbord_body{
-    color:black;
+.custom_Dprofile{
+    background-color: white;
+    border-radius: 0.4rem;
+    box-shadow:0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    padding:1rem;
+    ul{
+        padding:1rem 0;
+        font-weight: bold;
+        li{
+            @include mixin.grid(1fr 1fr , 1fr , 1rem);
+            padding: 0.5rem 0;
+            color:color.$blackMedium;
+            div{
+                color:color.$colortextGray02;
+            }
+        }
+    }
+}
+.customEduInfo{
+    margin: 1rem 0.2rem;
+    .title{
+        font-weight: bold;
+        color: color.$colortextGray;
+    }
+    .year{
+        font-size: 14px;
+        color:color.$colortextGray02;
+    }
+    .detail01,
+    .detail02{
+        margin-bottom: 1rem;
+        @include mixin.flex(row , unset , unset, 1rem);
+        span{
+            color:color.$color_gray;
+        }
+    }
+}
+
+.Dprofile-wrapper{
+    margin-top: 2rem;
+    height: fit-content;
+    padding: 1px;
+    color: color.$black;
+    @include mixin.grid(1fr 1fr , 1fr , 1rem);
+    .personal-info{
+        @extend .custom_Dprofile;
+    }
+    .emergency-contact{
+        @extend .custom_Dprofile;
+        .Ecard1{
+            border-bottom:solid 1px;
+            border-color: color.$colortextGray;
+        }
+    }
+    .bank-info{
+        @extend .custom_Dprofile;
+    }
+    .family-info{
+        @extend .custom_Dprofile;
+        overflow-x: auto;
+        .family-table{
+            overflow-x: auto;
+            > table{
+                width: 100%;
+                margin: 1rem 0;
+                border-top:1px solid;
+                border-color:color.$colorLightGray;
+                border-collapse: collapse;
+    
+                th,td{
+                    white-space: nowrap;
+                    padding: 1rem 1rem;
+                    border-bottom: 1px solid;
+                    border-color:color.$colorLightGray;
+                }
+            }
+        }
+        
+    }
+    .edu-info{
+        @extend .custom_Dprofile;
+        .edu-info-detail{
+           @extend .customEduInfo;
+        }
+    }
+    .experience-info{
+        @extend .custom_Dprofile;
+        .exp-info-detail{
+            @extend .customEduInfo;
+        }
+    }
+    
+}
+
+.admin-wrapper{
+    position: fixed;
+    height: 6rem;
+    width: 10rem;
+    background-color:white;
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.1);
+    border-radius:4px;
+    box-sizing: border-box;
+    right:1px;
+    @include mixin.flex(column , center , unset , 0);
+    .admin-card div{
+        color:color.$blackMedium;
+        font-weight:bold;
+        padding:2px 0;
+    }
 }

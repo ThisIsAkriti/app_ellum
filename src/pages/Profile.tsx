@@ -5,13 +5,13 @@ import Sidebar from "../components/Sidebar"
 
 const profile = () => {
     return(
-        <div className="dashboard_wrapper">
-        <Header/>
-        <div className="dashbord_body">
-          <Sidebar/>
-          <ProfileBody/>
-        </div>
+    <div className="dashboard_wrapper">
+      <Header/>
+      <div className="dashbord_body">
+        <Sidebar/>
+        <ProfileBody/>
       </div>
-    )
+    </div>
+  )
 }
 export default profile;
