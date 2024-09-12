@@ -1,12 +1,25 @@
 import { useSelector } from "react-redux"
 import { RootState } from "../utils/store"
 import { useNavigate} from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Sidebar: React.FC = () => {
   const isMenuOpen = useSelector((state : RootState) => state.sidebarToggle.isMenuOpen);
+  const breakpoint = 768;
+  const [windowWidth , setWindowWidth] = useState(window.innerWidth);
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  }
+  useEffect(() => {
+    window.addEventListener('resize' , handleResize);
+    return () => {
+      window.removeEventListener('resize' , handleResize);
+    }
+  } , [])
+  const shouldMenuOpen = window.innerWidth >= breakpoint ? isMenuOpen: !isMenuOpen; 
   const navigate = useNavigate();
 
-  if(isMenuOpen){
+  if(shouldMenuOpen){
     return(
       <nav className="sidebar_wrapper01">
         <ul>
