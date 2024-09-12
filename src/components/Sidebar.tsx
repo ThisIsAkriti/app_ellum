@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 const Sidebar: React.FC = () => {
   const isMenuOpen = useSelector((state : RootState) => state.sidebarToggle.isMenuOpen);
-  const breakpoint = 768;
+  const breakpoint = 991;
   const [windowWidth , setWindowWidth] = useState(window.innerWidth);
   console.log(windowWidth)
   const handleResize = () => {

@@ -386,12 +386,15 @@ a{
 .Expand{
     margin-left: 15rem;
 }
-
-.custom_Dprofile{
+.customProfileStyle{
     background-color: white;
     border-radius: 0.4rem;
     box-shadow:0 2px 4px 1px rgba(0, 0, 0, 0.1);
-    padding:1rem;
+    padding:2rem;
+    margin-top: 3rem
+}
+.custom_Dprofile{
+   @extend .customProfileStyle;
     ul{
         padding:1rem 0;
         font-weight: bold;
@@ -425,8 +428,8 @@ a{
     }
 }
 
+
 .Dprofile-wrapper{
-    margin-top: 2rem;
     height: fit-content;
     padding: 1px;
     color: color.$black;
@@ -481,6 +484,69 @@ a{
     
 }
 
+.projects-container{
+    @media screen and (max-width:1920px){
+        @include mixin.grid(1fr 1fr 1fr 1fr, 1fr , 1rem);
+    }
+    @media screen and (max-width:1280px){
+        @include mixin.grid(1fr 1fr 1fr, 1fr , 1rem);
+    }
+    @media screen and (max-width:991px){
+        @include mixin.grid(1fr 1fr, 1fr , 1rem);
+    }
+    @media screen and (max-width:650px){
+        @include mixin.grid(1fr, 1fr , 1rem);
+    }
+    
+   
+    .Dprojects-wrapper{
+        @extend .customProfileStyle;
+        font-weight: bold;
+        color:color.$colortextGray02;
+        .heading{
+            color:color.$black;
+            font-size: 1.3rem;
+        }
+        .task,
+        .progress-Bar{
+            @include mixin.flex(row , unset , unset , 1rem);
+        }
+        .task {
+            font-size: 14px;
+            span{
+                margin-right: 0.2rem;
+                color:black;
+            }
+            p{
+                margin: 0.2rem 0 1rem 0;
+            }
+        }
+        h4{
+            color:color.$blackMedium;
+        }
+        .deadline,
+        .project,
+        .team{
+            margin: 1rem 0;
+        }
+        .progress{
+            @include mixin.flex(row , space-between , unset , 1rem);
+            margin-bottom: 1rem;
+            div{
+                color:color.$green;
+            }
+        }
+        .progress-bar{
+            width: 100%;
+            height: 6px;
+            border-radius: 1rem;
+            background-color: color.$colorLightestGray;
+        }
+        
+        
+    }
+}
+
 .admin-wrapper{
     position: fixed;
     height: 6rem;
@@ -498,7 +564,7 @@ a{
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
     
     .rightSide_header{
         .notification,
