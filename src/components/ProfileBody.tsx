@@ -42,7 +42,7 @@ const ProfileBody:React.FC = () => {
                     className="profile_right">
                         <ul>
                             <li>Phone:
-                                <div className="num">{data.date}</div>
+                                <div className="num">{data.phone}</div>
                             </li>
                             <li>Email:
                                 <div className="email">{data.email}</div>

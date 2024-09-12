@@ -184,6 +184,7 @@ a{
         display: none;
     }
     }
+
     .rightSide_header{
        @include mixin.flex(row , unset , center ,0);
         margin-right: 10px;
@@ -218,11 +219,6 @@ a{
             padding: 6px;
         }
         
-    }
-    @media screen and (max-width: 550px) {
-        .rightSide_header{
-            display: none;
-        }
     }
 }
 .custom-sidebar{
@@ -278,14 +274,12 @@ a{
     }
 }
 
-
 .body-wrapper{
     overflow-y: auto;
     height: calc(100vh - var(--header-height));
 }
 .arrow{
-    height: 14px;
-    
+    height: 14px;   
 }
 .custom_profile_div{
     margin:1rem 0;
@@ -296,16 +290,19 @@ a{
     background-color: rgb(245, 245, 245);
     color: rgba(0, 0, 0, 0.753);
     padding: 2rem;
+    margin-top:3rem;
     .profile_card{
         @include mixin.grid(1fr 1fr ,1fr , 0);
         height: min-content;
         background-color: white;
         margin-top: 2rem;
+        box-shadow:0 2px 4px 1px rgba(156, 156, 156, 0.2); 
+        border-radius: 0.5rem;
 
         .profile_Left{
             @include mixin.flex( row , unset , unset , 0);
             @extend .custom_profile_div;
-            border-right: dashed 1px color.$colortextGray02 ;
+            border-right: dashed 1px color.$colortextGray02;
             .img{
                 height: 8rem;
                 width: 8rem;
@@ -337,17 +334,17 @@ a{
                 @include mixin.btn();
                 margin-top: 1rem;
             }
-
         }
         .profile_right{
             @extend .custom_profile_div;
             margin-left: 2rem;
             font-weight:600;
+            font-size: 0.9rem;
             
             ul li{
                 @include mixin.grid(1fr 1fr , 1f , 0);
                 margin:0.5rem 0;
-                .num ,
+                .num,
                 .email,
                 .name{
                     color:color.$dot_color;
@@ -367,8 +364,9 @@ a{
             background-color: white;
             margin-top: 1rem;
             padding: 0.6rem 0.6rem;
-            box-shadow:0 2px 4px -1px rgba(0, 0, 0, 0.2); 
+            box-shadow:0 2px 4px 1px rgba(63, 63, 63, 0.2); 
             border-radius: 0.2rem;
+    
             span{
                 color:red;
                 font-weight: normal;
@@ -392,7 +390,7 @@ a{
 .custom_Dprofile{
     background-color: white;
     border-radius: 0.4rem;
-    box-shadow:0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    box-shadow:0 2px 4px 1px rgba(0, 0, 0, 0.1);
     padding:1rem;
     ul{
         padding:1rem 0;
@@ -497,5 +495,63 @@ a{
         color:color.$blackMedium;
         font-weight:bold;
         padding:2px 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    .rightSide_header{
+        .notification,
+        .message{
+            display: none;
+        }
+    }
+   
+    .sidebar_wrapper01{
+        display: none;
+    }
+    .Contract{
+        margin-left: 0rem;
+    }
+    .Expand{
+        margin-left: 0rem;
+    }
+    .profile-body {
+        padding: 2rem 1rem;
+        .profile_card{
+            @include mixin.grid(1fr , 1fr, 1rem);
+            .profile_Left{
+                @include mixin.flex( column, center , center , 0);
+                border-right:none;
+                border-bottom: dashed 1px color.$colortextGray02 ;
+                padding-bottom: 2rem;
+                
+                .person_details{
+                    text-align: center;
+                    margin-top: 1rem;
+                }
+            }
+            .profile_right{
+                margin: 0 1rem 2rem 1rem ;
+            }
+        }
+        .profile_card02_nav{
+            nav{
+                @include mixin.flex(row , unset, unset , 1rem);
+                font-weight:bold;
+                color:color.$colortextGray02;
+                background-color: white;
+                margin-top: 2rem;
+
+                div{
+                    margin: 0 0.2rem;
+                }
+            }
+            
+            
+        }
+    }
+    .Dprofile-wrapper{
+        @include mixin.grid(1fr , 1fr , 1rem);
     }
 }
