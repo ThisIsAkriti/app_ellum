@@ -339,7 +339,7 @@ a{
             @extend .custom_profile_div;
             margin-left: 2rem;
             font-weight:600;
-            font-size: 0.9rem;
+            font-size: 1rem;
             
             ul li{
                 @include mixin.grid(1fr 1fr , 1f , 0);
@@ -363,7 +363,7 @@ a{
             color:color.$colortextGray02;
             background-color: white;
             margin-top: 1rem;
-            padding: 0.6rem 0.6rem;
+            padding: 1rem;
             box-shadow:0 2px 4px 1px rgba(63, 63, 63, 0.2); 
             border-radius: 0.2rem;
     
@@ -391,13 +391,14 @@ a{
     border-radius: 0.4rem;
     box-shadow:0 2px 4px 1px rgba(0, 0, 0, 0.1);
     padding:2rem;
-    margin-top: 3rem
+    margin-top: 3rem;
 }
 .custom_Dprofile{
    @extend .customProfileStyle;
     ul{
         padding:1rem 0;
         font-weight: bold;
+        font-size: 18px;
         li{
             @include mixin.grid(1fr 1fr , 1fr , 1rem);
             padding: 0.5rem 0;
@@ -428,7 +429,32 @@ a{
     }
 }
 
+.custom_statutory{
+    div{
+        p{
+            font-weight: bold;
+            font-size: 0.8rem;
+            color:color.$colortextGray;
+        }
+        select,input{
+            padding: 1rem 0rem 1rem 0.5rem ;
+            outline: none;
+            border-radius: 0.4rem;
+            border-color: color.$colorLightGray;
+            color:color.$colortextGray;
+            font-weight: bold;
+            font-size: 1rem;
+            width: 100%;
+            
+        }
+    }
+}
 
+.custom_asset{
+    @include mixin.grid(2rem 1fr 6rem 1fr 1fr , 1fr , 1rem);
+    font-weight: bold;
+    padding: 1.2rem 1rem ;
+}
 .Dprofile-wrapper{
     height: fit-content;
     padding: 1px;
@@ -441,7 +467,7 @@ a{
         @extend .custom_Dprofile;
         .Ecard1{
             border-bottom:solid 1px;
-            border-color: color.$colortextGray;
+            border-color: color.$colorLightGray;
         }
     }
     .bank-info{
@@ -465,6 +491,10 @@ a{
                     border-bottom: 1px solid;
                     border-color:color.$colorLightGray;
                 }
+                tbody th{
+                    color:color.$colortextGray;
+                }
+                
             }
         }
         
@@ -512,7 +542,7 @@ a{
             @include mixin.flex(row , unset , unset , 1rem);
         }
         .task {
-            font-size: 14px;
+            font-size: 0.8rem;
             span{
                 margin-right: 0.2rem;
                 color:black;
@@ -544,6 +574,76 @@ a{
         }
         
         
+    }
+}
+
+.statutory-wrapper{
+    @extend .customProfileStyle;
+
+    .salary-info-container,
+    .PF-info-container{
+        border-bottom: 1px solid color.$colorLightGray;
+        padding-bottom: 2rem;
+    }
+    .PF-info-container,
+    .ESI-info-container{
+        padding-top: 1rem;
+    }
+    h2{
+        margin-bottom: 1.5rem;
+    }
+    .salary-info{
+        @include mixin.grid(1fr 1fr 1fr , 1fr , 1rem); 
+        @extend .custom_statutory;
+    }
+    .PF-info,
+    .ESI-info{
+        @include mixin.grid(1fr , 1fr 1fr 1fr , 1rem);
+        @extend .custom_statutory;
+        > div{
+            @include mixin.grid(1fr 1fr 1fr , 1fr , 1rem); 
+        }
+    }
+    .save{
+        text-align: center;
+        button{
+            @include mixin.btn(none , 1rem 5rem);
+            background: color.$bgGradient;
+            border-radius: 2rem;
+            font-size: 1.2rem;
+        }
+    }
+
+    @media screen and (max-width: 650px) {
+        .salary-info{
+            @include mixin.grid(1fr , 1fr , 1rem); 
+            
+        }
+        .PF-info,
+        .ESI-info{
+            @include mixin.grid(1fr , 1fr , 1rem);
+            > div{
+                @include mixin.grid(1fr, 1fr , 1rem); 
+            }
+        }
+    }
+}
+
+.assets-wrapper{
+    @extend .customProfileStyle;
+    padding: 0;
+    .assets-heading {
+        @extend .custom_asset;
+        background-color: color.$colorLightestGray;
+    }
+    .assets-compoponent-container{
+        .assets-component{
+           @extend .custom_asset;
+           .name,
+           .assignee{
+            color:color.$colortextGray02;
+           }
+        }
     }
 }
 
