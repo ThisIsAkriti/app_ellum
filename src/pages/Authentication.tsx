@@ -4,9 +4,9 @@ import Sidebar from "../components/Sidebar"
 
 const authentication = () => {
     return(
-        <div className="dashboard_wrapper">
+        <div className="page_wrapper">
         <Header/>
-        <div className="dashbord_body">
+        <div className="page_body">
           <Sidebar/>
           <AuthBody/>
         </div>

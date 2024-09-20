@@ -1,23 +1,27 @@
 import { useState } from "react";
 import DProfile from "./DProfile";
 import info from "../utils/data/info_profile.json";
-import DProjects from "./DProjects";
-import DStatutory from "./DStatutory";
-import DAssets from "./DAssets";
+// import DProjects from "./DProjects";
+// import DStatutory from "./DStatutory";
+// import DAssets from "./DAssets";
 import { useSelector } from "react-redux";
 import { RootState } from "../utils/store";
+import useDocumentTitle from "../utils/hooks/useDocumentTitle";
+import { useNavigate } from "react-router-dom";
 
 const ProfileBody:React.FC = () => {
+    useDocumentTitle('Employee Profile - HRMS admin template')
     const profileData = info.data;
     const [activateCard , setActivate] = useState("profile");
     const isMenuOpen = useSelector((state : RootState) => state.sidebarToggle.isMenuOpen);
     const handleButtonClicked = (card : string) => {
         setActivate(card);
     }
+    const navigate = useNavigate();
     return(
         <div className={` profile-body ${isMenuOpen? " Contract" : "Expand"}`}>
             <h2>Profile</h2>
-            <h4>Dashboard / Profile</h4>
+            <h4><span onClick={() => navigate('/admin/dashboard')}>Dashboard</span> / Profile</h4>
             {profileData.map((data) => (
                 <div key={data.id} className="profile_card">
                     <div className="profile_Left">
@@ -72,14 +76,14 @@ const ProfileBody:React.FC = () => {
             <div className="profile_card02_nav">
                 <nav>
                     <div onClick={() => handleButtonClicked('profile')}>Profile</div>
-                    <div onClick={() => handleButtonClicked('projects')}>Projects</div>
+                    {/*<div onClick={() => handleButtonClicked('projects')}>Projects</div>
                     <div onClick={() => handleButtonClicked('bank')}>Bank and Statutory <span>(Admin Only)</span></div>
-                    <div onClick={() => handleButtonClicked('assets')}>Assets</div>
+                    <div onClick={() => handleButtonClicked('assets')}>Assets</div>*/}
                 </nav>
                 {activateCard === 'profile' && <DProfile/>}
-                {activateCard === 'projects' && <DProjects/>}
+                {/*{activateCard === 'projects' && <DProjects/>}
                 {activateCard === 'bank' && <DStatutory/>}
-                {activateCard === 'assets' && <DAssets/>}
+                {activateCard === 'assets' && <DAssets/>}*/}
             </div>
         </div>
     )

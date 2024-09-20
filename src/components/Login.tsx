@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { employees} from "../utils/mockData";
 import { useNavigate } from "react-router-dom";
+import useDocumentTitle from "../utils/hooks/useDocumentTitle";
 
 const Login = () => {
+    useDocumentTitle('Login - HRMS admin template')
     const [email , setEmail] = useState(employees[1].email);
     const [password , setPassword] = useState(employees[1].password);
     const [login , setLogin] = useState(false);

@@ -48,6 +48,15 @@ a{
     margin-bottom: 8px;
 }
 
+.custom_body_Style{
+    flex-grow:1;
+    color: rgba(0, 0, 0, 0.753);
+    padding: 2rem;
+    margin-top:3rem;
+    min-height: 100vh;
+    background-color: rgb(245, 245, 245);
+}
+
 .main_container{
     display: flex;
     flex-direction: column;
@@ -142,15 +151,18 @@ a{
 .password{
     @extend .custom_text;
 }
-.dashboard_wrapper{
+.page_wrapper{
     display: flex;
     flex-direction: column;
 }
 
-.dashbord_body{
+.page_body{
     color:black;
     display: flex;
     flex-grow: 1;
+    h4 span{
+        cursor: pointer;
+    }
 }
 .header_container{
     width: 100%;
@@ -286,11 +298,7 @@ a{
 }
 
 .profile-body {
-    flex-grow:1;
-    background-color: rgb(245, 245, 245);
-    color: rgba(0, 0, 0, 0.753);
-    padding: 2rem;
-    margin-top:3rem;
+    @extend .custom_body_Style;
     .profile_card{
         @include mixin.grid(1fr 1fr ,1fr , 0);
         height: min-content;
@@ -664,6 +672,105 @@ a{
     }
 }
 
+.password_Body{
+    @extend .custom_body_Style;
+    .password_body_wrapper{
+        @include mixin.flex(column , center , center , 1rem);
+        text-align: center;
+        .password_container{
+            @include mixin.flex(column , center , center , 1rem);
+            background-color: white;
+            border: 1px solid color.$colorLightGray;
+            border-radius: 0.5rem;
+            margin-top:1rem;
+            padding: 3rem 0;
+            width: 50%;
+            button{
+                @include mixin.btn();
+                background: color.$bgGradient;
+                font-size: large;
+                cursor: pointer;
+            }
+            input{
+                border:none;
+                outline:none;
+                width: 80%;
+                font-size: medium;
+                color:color.$colortextGray02;
+                background-color: color.$colorLightestGray;
+                padding:1rem;
+                border-radius: 4px;
+                margin-bottom: 1rem;
+            }
+            p{
+                font-weight: bold;
+                color:color.$dot_color;
+            }
+        }
+    }
+    
+}
+
+.Total_Company_Body{
+    @extend .custom_body_Style;
+    .company_container{
+        margin-top:2rem;
+        .company_wrapper{
+            background-color: white;
+            padding:2rem;
+            margin-bottom:2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0px 2px 4px rgba(124, 124, 124, 0.2);
+    
+            .company_header{
+                @include mixin.flex(row , unset ,center , 1rem);
+                margin-bottom: 1.5rem;
+                .company_header_title{
+                    font-weight: bold;
+                    color:color.$colortextGray;
+                }
+                .ratings{
+                    font-size: 0.9rem;
+                }
+                .img{
+                    background-color: rgb(190, 189, 189);
+                    padding:0.6rem;
+                    border-radius:100%;
+                }
+            }
+            .company_middle{
+                >p{
+                    margin-bottom: 0.4rem;
+                    font-size: 0.9rem;
+                    font-weight: bold;
+                    color:color.$colortextGray;
+                }
+            }
+            .promotion{
+                color:rgb(2, 119, 252);
+                font-weight: bold;
+                font-size: 0.8rem;
+                background-color: color.$colorLightestGray;
+                width: fit-content;
+                padding:4px 6px;
+                border-radius: 4px;
+                margin-top:1.5rem;
+                margin-bottom: 2rem;
+            }
+            .company_bottom{
+                padding:1rem 0.8rem;
+                @include mixin.flex(row , space-between , unset , 1rem);
+                border-top:1px solid color.$colorLightGray;
+            }
+        }
+    }
+    
+}
+
+.dashboard_wrapper{
+    @extend .custom_body_Style;
+}
+
 @media screen and (max-width: 991px) {
     
     .rightSide_header{
@@ -719,5 +826,11 @@ a{
     }
     .Dprofile-wrapper{
         @include mixin.grid(1fr , 1fr , 1rem);
+    }
+
+    .password_Body{
+        .password_container{
+            width: 80%;
+        }
     }
 }

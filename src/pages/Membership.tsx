@@ -1,9 +1,8 @@
-
 import Header from "../components/Header";
 import ProfileBody from "../components/ProfileBody";
 import Sidebar from "../components/Sidebar"
 
-const profile = () => {
+const Membership = () => {
     return(
     <div className="page_wrapper">
       <Header/>
@@ -14,4 +13,4 @@ const profile = () => {
     </div>
   )
 }
-export default profile;
+export default Membership;

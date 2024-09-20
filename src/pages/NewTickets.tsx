@@ -1,10 +1,9 @@
-
 import Header from "../components/Header";
 import ProfileBody from "../components/ProfileBody";
 import Sidebar from "../components/Sidebar"
 
-const profile = () => {
-    return(
+const NewTickets = () => {
+  return (
     <div className="page_wrapper">
       <Header/>
       <div className="page_body">
@@ -14,4 +13,5 @@ const profile = () => {
     </div>
   )
 }
-export default profile;
+
+export default NewTickets

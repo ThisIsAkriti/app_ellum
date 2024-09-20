@@ -1,12 +1,12 @@
-import Body from "../components/Body";
+import Body from "./Dashboard";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar"
 
 const subscription = () => {
     return(
-        <div className="dashboard_wrapper">
+        <div className="page_wrapper">
         <Header/>
-        <div className="dashbord_body">
+        <div className="page_body">
           <Sidebar/>
           <Body/>
         </div>

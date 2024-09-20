@@ -50,52 +50,87 @@ const Sidebar: React.FC = () => {
   }else{
     return(
       <nav className="sidebar_wrapper">
-        <h2>
-          <span>•</span>PAGES
-        </h2>
-        <ul>
-          <li>
-            <div onClick={() => navigate('/admin/profile')}>
-              <div>
-                <img src="../admin.png" alt="admin" />
-                <span>Profile</span>
+        <div>
+          <h2>
+            <span>•</span>Dashboard
+          </h2>
+          <ul>
+
+            <li>
+              <div onClick={() => navigate('/admin/totalCompanies')}>
+                <div>
+                  <img src="../admin.png" alt="admin" />
+                  <span>Total Companies</span>
+                </div>
+                <img src="../rightArrow.png" alt="arrow" />
               </div>
-              <img src="../rightArrow.png" alt="arrow" />
-            </div>
-          </li>
+            </li>
 
-          <li>
-            <div onClick={() => navigate('/admin/authentication')}>
-              <div>
-                <img src="../admin.png" alt="admin" />
-                <span>Authentication</span>
+
+            <li>
+              <div onClick={() => navigate('/admin/memberShip')}>
+                <div>
+                  <img src="../admin.png" alt="admin" />
+                  <span>Membership expire</span>
+                </div>
+                <img src="../rightArrow.png" alt="arrow" />
               </div>
-              <img src="../rightArrow.png" alt="arrow" />
-            </div>
-          </li>
+            </li>
 
 
-          <li>
-            <div onClick={() => navigate('/admin/error')}>
-              <div>
-                <img src="../admin.png" alt="admin" />
-                <span>Error Pages</span>
+            <li>
+              <div onClick={() => navigate('/admin/subscription')}>
+                <div>
+                  <img src="../admin.png" alt="admin" />
+                  <span>New companies</span>
+                </div>
+                <img src="../rightArrow.png" alt="arrow" />
               </div>
-              <img src="../rightArrow.png" alt="arrow" />
-            </div>
-          </li>
+            </li>
 
-
-          <li>
-            <div onClick={() => navigate('/admin/subscription')}>
-              <div>
-                <img src="../admin.png" alt="admin" />
-                <span>Susbcription</span>
+            <li>
+              <div onClick={() => navigate('/admin/newTickets')}>
+                <div>
+                  <img src="../admin.png" alt="admin" />
+                  <span>New tickets</span>
+                </div>
+                <img src="../rightArrow.png" alt="arrow" />
               </div>
-              <img src="../rightArrow.png" alt="arrow" />
-            </div>
-          </li>
-        </ul>
+            </li>
+
+          </ul>
+        </div>
+
+        <div>
+          <h2>
+            <span>•</span>Add new company
+          </h2>
+        </div>
+
+        <div>
+          <h2>
+            <span>•</span>View all companies
+          </h2>
+        </div>
+
+        <div>
+          <h2>
+            <span>•</span>Profile Settings
+          </h2>
+          <ul>
+            <li>
+              <div onClick={() => navigate('/admin/password')}>
+                <div>
+                  <img src="../admin.png" alt="admin" />
+                  <span>Password</span>
+                </div>
+                <img src="../rightArrow.png" alt="arrow" />
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        
       </nav>
     )
   }

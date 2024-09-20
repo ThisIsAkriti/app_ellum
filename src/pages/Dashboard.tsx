@@ -1,13 +1,21 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../utils/store";
 
-const Dashboard = () => {
-  const isMenuOpen = useSelector((state : RootState) => state.sidebarToggle.isMenuOpen);
+import Header from "../components/Header"
+import "../styles/app.scss";
+import Sidebar from "../components/Sidebar";
+import DashboardBody from "../components/DashboardBody";
+import useDocumentTitle from "../utils/hooks/useDocumentTitle";
+
+const Body = () => {
+  useDocumentTitle('Dashboard - HTMS admin tempelate')
   return (
-    <div className={` ${isMenuOpen? "Contract" : "Expand"}`}>
-      div
+    <div className="page_wrapper">
+      <Header/>
+      <div className="page_body">
+        <Sidebar/>
+        <DashboardBody/>
+      </div>
     </div>
   )
 }
 
-export default Dashboard;
+export default Body;

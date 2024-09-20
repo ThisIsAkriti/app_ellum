@@ -1,17 +1,17 @@
-
 import Header from "../components/Header";
-import ProfileBody from "../components/ProfileBody";
+import TotalCompanyBody from "../components/TotalCompanyBody";
 import Sidebar from "../components/Sidebar"
 
-const profile = () => {
-    return(
+const TotalCompanies = () => {
+  return (
     <div className="page_wrapper">
       <Header/>
       <div className="page_body">
         <Sidebar/>
-        <ProfileBody/>
+        <TotalCompanyBody/>
       </div>
     </div>
   )
 }
-export default profile;
+
+export default TotalCompanies
