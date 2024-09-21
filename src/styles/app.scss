@@ -769,6 +769,52 @@ a{
 
 .dashboard_wrapper{
     @extend .custom_body_Style;
+    .blocks_container{
+        margin-top:2rem;
+        .blocks{
+            @include mixin.flex(row , space-between , center , 1rem);
+            box-shadow:0 2px 4px 1px rgba(156, 156, 156, 0.2);
+            background-color: white;
+            padding:1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            p{
+                font-weight: bold;
+            }
+            .img{
+                height: 4rem;
+                width: 4rem;
+                background-color: rgb(209, 208, 208);
+                border-radius: 100%;
+            }
+        }
+    }
+
+    .chart_container{
+        @include mixin.flex(row, center , center , 1rem);
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        width: 100%;
+        .bar_chart,
+        .line_chart{
+            background-color: white;
+            padding:3rem;
+            box-shadow:0 2px 4px 1px rgba(156, 156, 156, 0.2); 
+
+        }
+    }
+
+    @media (min-width: 580px) and (max-width: 1200px){
+        .blocks_container{
+            @include mixin.grid(1fr 1fr, 1fr 1fr ,1rem );
+        }
+    }
+    @media (min-width:1200px) and (max-width: 5000px){
+        .blocks_container{
+            @include mixin.grid(1fr 1fr 1fr 1fr, 1fr  , 1rem );
+        }
+    }
+    
 }
 
 @media screen and (max-width: 991px) {
