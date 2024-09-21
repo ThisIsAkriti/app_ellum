@@ -66,7 +66,6 @@ const Dashboard = () => {
             borderColor1="rgba(53,162,235)"
             backgroundColor2="rgba(10,262,135)"
             borderColor2="rgba(53,162,235,0.4)"
-            label= "Users"
             />
           </div>
           

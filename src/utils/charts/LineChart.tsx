@@ -34,7 +34,6 @@ import {
   
   interface LineChartProps {
     horizontal?:boolean,
-    label:string;
     data1:number[];
     data2:number[];
     title1:string;
@@ -51,7 +50,6 @@ import {
     data2,
     title1,
     title2,
-    label,
     backgroundColor1,
     backgroundColor2,
     borderColor1,
