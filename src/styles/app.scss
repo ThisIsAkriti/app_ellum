@@ -166,6 +166,7 @@ a{
 }
 .header_container{
     width: 100%;
+    z-index: 40;
     background: color.$bgGradient;
     height: 60px;
     display: flex;
@@ -244,6 +245,7 @@ a{
 }
 .sidebar_wrapper{
     width: 250px;
+    z-index: 40;
     @extend .custom-sidebar;
     h2{
        @include mixin.flex(row , unset , center ,0);
@@ -275,6 +277,7 @@ a{
 
 .sidebar_wrapper01{
     width:60px;
+    z-index:40;
     @extend .custom-sidebar;
     > ul{
         margin-top: 1rem;
@@ -715,6 +718,10 @@ a{
     @extend .custom_body_Style;
     .company_container{
         margin-top:2rem;
+
+        @media (min-width: 991px) and (max-width: 5000px){
+            @include mixin.grid(1fr 1fr , 1fr , 1rem);
+        }
         .company_wrapper{
             background-color: white;
             padding:2rem;
@@ -793,17 +800,63 @@ a{
     .chart_container{
         @include mixin.flex(row, center , center , 1rem);
         flex-wrap: wrap;
-        margin-top: 2rem;
+        margin: 2rem 0;
         width: 100%;
         .bar_chart,
         .line_chart{
+            width: 25rem;
+            padding:2rem 1rem;
+            margin:auto;
             background-color: white;
-            padding:3rem;
             box-shadow:0 2px 4px 1px rgba(156, 156, 156, 0.2); 
 
         }
     }
 
+    .blocks_container_02{
+        @media (min-width: 1200px) and (max-width: 5000px){
+            @include mixin.grid(1fr 1fr 1fr 1fr , 1fr , 1rem)
+        }
+        @media (min-width:500px) and (max-width: 1200px){
+            @include mixin.grid(1fr 1fr , 1fr 1fr , 1rem)
+        }
+        @media (min-width: 1200px) and (max-width: 5000px){
+            @include mixin.grid(1fr 1fr 1fr 1fr , 1fr , 1rem)
+        }
+        .block_02_wrapper{
+            background-color: white;
+            box-shadow:0 2px 4px 1px rgba(156, 156, 156, 0.2); 
+            border-radius: 0.5rem;
+            padding:1rem;
+            margin-bottom: 1rem;
+            .block_02_heading{
+                @include mixin.flex(row , space-between , center, 1rem);
+                margin-bottom: 1rem;
+                p{
+                    color:green;
+                    font-size: 14px;
+                    font-weight: bolder;
+                }
+            }
+            .line_bar{
+                width: 100%;
+                height: 4px;
+                border-radius: 1rem;
+                background-color: color.$colorLightGray;
+                margin:1rem 0 0.8rem 0;
+                .progress_bar{
+                    background:color.$bgGradient;
+                    width:70%;
+                    height: 100%;
+                    border-radius: 2rem;
+                }
+            }
+            .line{
+                font-weight: bold;
+                font-size: 14px;
+            }
+        }
+    }
     @media (min-width: 580px) and (max-width: 1200px){
         .blocks_container{
             @include mixin.grid(1fr 1fr, 1fr 1fr ,1rem );
@@ -815,6 +868,32 @@ a{
         }
     }
     
+}
+
+.new_company_body{
+    @extend .custom_body_Style;
+    .table_status{
+        width: fit-content;
+        padding: 0.5rem 1rem;
+        border-radius: 0.4rem;
+    }
+    .active{
+        background-color: color.$dot_color;
+    }
+    .inactive{
+        background-color: pink;
+    }
+    tbody{
+        tr{
+            td{
+                @media (max-width: 899.95px) {
+                    .tss-1ej321f-MUIDataTableBodyCell-cellHide {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 991px) {

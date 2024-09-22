@@ -44,6 +44,7 @@ const Dashboard = () => {
           </div>
   
         </div>
+
         <div className="chart_container">
 
           <div className="bar_chart">
@@ -68,6 +69,63 @@ const Dashboard = () => {
             borderColor2="rgba(53,162,235,0.4)"
             />
           </div>
+          
+        </div>
+
+        <div className="blocks_container_02">
+          <div className="block_02_wrapper">
+            <div className="block_02_heading">
+              <h4>New Employees</h4>
+              <p>+10%</p>
+            </div>
+            <div>
+              <h3>10</h3>
+              <div className="line_bar">
+                <div className="progress_bar"></div>
+              </div>
+              <p className="line">Overall Employee 218</p>
+            </div>
+          </div>
+          <div className="block_02_wrapper">
+            <div className="block_02_heading">
+              <h4>Earnings</h4>
+              <p>+12.5%</p>
+            </div>
+            <div>
+              <h3>$1,42,300</h3>
+              <div className="line_bar">
+                <div className="progress_bar"></div>
+              </div>
+              <p className="line">Previous Month $1,15,852</p>
+            </div>
+          </div>
+          <div className="block_02_wrapper">
+            <div className="block_02_heading">
+              <h4>Expenses</h4>
+              <p>-2.8%</p>
+            </div>
+            <div>
+              <h3>$8,500</h3>
+              <div className="line_bar">
+                <div className="progress_bar"></div>
+              </div>
+              <p className="line">Previous Month $1,42,000</p>
+            </div>
+          </div>
+          <div className="block_02_wrapper">
+            <div className="block_02_heading">
+              <h4>Profit</h4>
+              <p>-75%</p>
+            </div>
+            <div>
+              <h3>$1,12,000</h3>
+              <div className="line_bar">
+                <div className="progress_bar"></div>
+              </div>
+              <p className="line">Previous Month $1,42,000</p>
+            </div>
+          </div>
+          
           
         </div>
       </div>

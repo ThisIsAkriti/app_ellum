@@ -79,7 +79,7 @@ const Sidebar: React.FC = () => {
 
 
             <li>
-              <div onClick={() => navigate('/admin/subscription')}>
+              <div onClick={() => navigate('/admin/newcompany')}>
                 <div>
                   <img src="../admin.png" alt="admin" />
                   <span>New companies</span>

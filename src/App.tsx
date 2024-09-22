@@ -5,13 +5,13 @@ import { Provider } from "react-redux";
 import store from "./utils/store";
 import Authentication from "./pages/Authentication";
 import Error from "./pages/Error";
-import Subscription from "./pages/Subscription";
 import Profile from "../src/pages/Profile";
 import Password from "./pages/Password";
 import TotalCompanies from "./pages/TotalCompanies";
 import Membership from "./pages/Membership";
 import NewTickets from "./pages/NewTickets";
 import Dashboard from "./pages/Dashboard";
+import NewCompany from "./pages/NewCompany";
 function App() {
  
 
@@ -24,7 +24,7 @@ function App() {
         <Route path="/admin/authentication" element={<Authentication/>}/>
         <Route path="/admin/profile" element={<Profile/>}/>
         <Route path="/admin/error" element={<Error/>}/>
-        <Route path="/admin/subscription" element={<Subscription/>}/>
+        <Route path="/admin/newCompany" element={<NewCompany/>}/>
         <Route path="/admin/password" element={<Password/>}/>
         <Route path="/admin/totalCompanies" element={<TotalCompanies/>}/>
         <Route path="/admin/memberShip" element={<Membership/>}/>
