@@ -874,14 +874,16 @@ a{
     @extend .custom_body_Style;
     .table_status{
         width: fit-content;
-        padding: 0.5rem 1rem;
-        border-radius: 0.4rem;
+        padding: 0.2rem 1rem;
+        border-radius: 1rem;
     }
     .active{
-        background-color: color.$dot_color;
+        border:2px solid color.$dot_color;
+        color:color.$dot_color;
     }
     .inactive{
-        background-color: pink;
+        border:2px solid color.$green;
+        color:color.$green;
     }
     tbody{
         tr{
